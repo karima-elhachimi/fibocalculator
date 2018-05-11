@@ -3,13 +3,12 @@
     <div class="card-block">
         <h4 class="card-title"><% title %></h4>
 
-        <form class="form-inline"  method="get" action="/fibocal">
-            <div class="form-group mx-sm-3 mb-2">
+        <form class="form-inline"  method="post" action="http://localhost:3000/fibocal">
+
                 <p>Enter the max number you want to see the fibonacci sequence for.</p>
                 <label for="maxNumber" class="sr-only">Number</label>
-                <input type="number" class="form-control" id="maxNumber" placeholder="Number">
-            </div>
-            <button type="submit" class="btn btn-primary mb-2">Calculate Sequence</button>
+                <input class="form-control" name="maxNumber" placeholder="Number" type="text">
+            <input type="submit" value="submit">
         </form>
 
         <%if ( show ) { %>

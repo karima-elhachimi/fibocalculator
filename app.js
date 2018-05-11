@@ -37,8 +37,9 @@ app.set('view engine', 'ejs');
     app.use(express.static(path.join(__dirname, 'public')));
 
 
-
+app.use('/fibocal', fibo.index);
 app.use('/', index.index);
+
 
 
 
@@ -64,7 +65,9 @@ app.use(function(err, req, res, next) {
 });
 
 
-app.use('/', index.index);
+app.post('/fibocal', function(req, res){
+    fibo.index(req,res);
+});
 http.createServer(app).listen(app.get('port'), function(){
     console.log("Express server listening on port " +
         app.get('port'));
