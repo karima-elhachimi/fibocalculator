@@ -1,23 +1,31 @@
-<form class="form-inline"  method="get" action="/fibocal">
-    <div class="form-group mx-sm-3 mb-2">
-        <p>Enter the max number you want to see the fibonacci sequence for.</p>
-        <label for="maxNumber" class="sr-only">Number</label>
-        <input type="number" class="form-control" id="maxNumber" placeholder="Number">
-    </div>
-    <button type="submit" class="btn btn-primary mb-2">Calculate Sequence</button>
-</form>
+<% include header%>
+<div class="card">
+    <div class="card-block">
+        <h4 class="card-title"><% title %></h4>
 
+        <form class="form-inline"  method="get" action="/fibocal">
+            <div class="form-group mx-sm-3 mb-2">
+                <p>Enter the max number you want to see the fibonacci sequence for.</p>
+                <label for="maxNumber" class="sr-only">Number</label>
+                <input type="number" class="form-control" id="maxNumber" placeholder="Number">
+            </div>
+            <button type="submit" class="btn btn-primary mb-2">Calculate Sequence</button>
+        </form>
 
-<%if (sequence.length > 0) { %>
+        <%if ( show ) { %>
 
-<ul class="list-inline">
+        <ul class="list-inline">
 
-        <% for(var i=0; i < sequence.length; i++) { %>
+            <% for(var i=0; i < sequence.length; i++) { %>
             <li class="list-inline-item"><%= sequence[i] %></li>
+            <% } %>
+
+        </ul>
+
+        <% } else { %>
+
         <% } %>
+    </div>
+</div>
 
-</ul>
-
-<% } else { %>
-
-<% } %>
+<% include footer %>
